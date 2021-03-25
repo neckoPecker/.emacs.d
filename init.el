@@ -7,8 +7,8 @@
 
 ;;; Dashboard
 (setq dashboard-banner-logo-title "Welcome...")
-(setq dashboard-banner-logo-png "~/Pictures/icons/dark_emacs.png")
-(setq dashboard-startup-banner "~/Pictures/icons/dark_emacs.png")
+(setq dashboard-banner-logo-png "~/.emacs.d/images/dark_emacs.png")
+(setq dashboard-startup-banner "~/.emacs.d/images/dark_emacs.png")
 
 ;; Org
 (setq user-agenda-list '("~/Documents/Personal/Tasks.org"))
@@ -156,16 +156,3 @@
 		visual-line-mode t))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; (custom-set-variables
-;;  ;; custom-set-variables was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  '(package-selected-packages
-;;    '(org-superstar org-download org-cliplink visual-fill-column use-package markdown-mode ledger-mode ivy doom-themes deft dashboard company)))
-;; (custom-set-faces
-;;  ;; custom-set-faces was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  )
