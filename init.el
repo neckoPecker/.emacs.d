@@ -51,7 +51,7 @@
 (defun edit-config ()
   "Edit the configuration file"
   (interactive)
-  (find-file "~/.config/emacs/init.el"))
+  (find-file "~/.emacs.d/init.el"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Package Configuration
