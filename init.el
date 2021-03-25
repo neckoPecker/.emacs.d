@@ -19,9 +19,15 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Package Configuraiton
 
-(require 'package)
-(package-initialize)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(condition-case nil
+    (require 'use-package)
+  (file-error
+   (require 'package)
+   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+   (package-refresh-contents)
+   (package-install 'use-package)
+   (setq use-package-always-ensure t)
+   (require 'use-package)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Emacs Configuration
@@ -56,6 +62,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Package Configuration
 
+;;; General Packages
 (use-package company 
   :ensure
   :hook (after-init . global-company-mode)
@@ -80,6 +87,9 @@
   :ensure
   :init (load-theme 'doom-plain t))
 
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode))
 
 (use-package ivy
   :ensure
@@ -96,7 +106,6 @@
 		       (setq-local tab-always-indent 'complete)
 		       (setq-local completion-cycle-threshold t)
 		       (setq-local ledger-complete-in-steps t))))
-
 
 (use-package markdown-mode
   :ensure t
@@ -134,7 +143,7 @@
 
 
 (use-package org-superstar
-  :hook (org-mode . (lambda () (org-super-star 1) )))
+  :hook (org-mode . (lambda () (org-superstar-mode 1))))
 
 
 (use-package org-cliplink
@@ -154,5 +163,15 @@
 	 (visual-line-mode . visual-fill-column-mode))
   :config (setq fill-column 100
 		visual-line-mode t))
+
+;;; Programming
+
+(use-package lsp-mode :ensure t)
+(use-package lsp-java :hook (java-mode . lsp))
+(use-package lsp-ui :ensure t :commands lsp-ui-mode)
+(use-package lsp-ivy :ensure t :commands lsp-ivy-workspace-symbol)
+(use-package lsp-treemacs :ensure t :commands lsp-treemacs-errors-list)
+(use-package dap-mode :ensure t :after lsp-mode :config (dap-auto-configure-mode))
+(use-package yasnippet :ensure t :config (yas-global-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

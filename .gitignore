@@ -1,2 +1,4 @@
-recentf
-auto-save-list
+*
+
+!.gitignore
+!init.el
