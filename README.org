@@ -23,3 +23,7 @@ Unlike conventional emacs configurations, most of the elisp code is actually int
 
 * Why?
 My emacs configuration is very personalized, and so it caters to what I need. In essence, the whole goal of this configuration is to improve my learning and productivity.
+
+* Credits
+  
+  + [[https://github.com/angrybacon/dotemacs/blob/master/dotemacs.org][Angry Bacon's dotemacs]]
