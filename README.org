@@ -3,25 +3,23 @@
 #+options: toc:nil
 
 * About
-This is my custom emacs configuration. Try it out if you would like. It was made to be plug-and-play, and it contains my configuration preferences. 
-
-I normally use this on my Linux machine, but I have no clue whether this configuration will work on Windows or Mac.
+This is my custom emacs configuration. There are many like it, but this one is mine, and it could be yours too!
 
 * Installation
-First, you need to install emacs on your system. I use Arch Linux, so I just install it with:
+First, you need to install emacs on your system. I use Arch Linux, so I would install it with
 
 #+begin_src bash
   sudo pacman -S emacs
 #+end_src
 
-After you after installed emacs, just clone this repository into your home directory (=git clone https://github.com/neckoPecker/.emacs.d=).
+After you have installed emacs, just clone this repository into your home directory (=git clone https://github.com/neckoPecker/.emacs.d=).
 
-Then, boot up emacs. It will install all the required packages
+Then start up Emacs. It will automatically install the necessary packages you need (Don't worry about the =use-package= errors; they're normal).
 
 * How does it work?
 Unlike conventional emacs configurations, most of the elisp code is actually into an =.org= file, which uses babel to evaluate them. =init.el= is just used to execute the org-file. 
 
-=custom.el= doesn't know what its here.
+=custom.el= doesn't know why it's here.
 
 * Why?
-Beats me. But if I'm still using it, then it's probably still pretty useful, right?
+My emacs configuration is very personalized, and so it caters to what I need. In essence, the whole goal of this configuration is to improve my learning and productivity.
