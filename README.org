@@ -16,11 +16,6 @@ After you have installed emacs, just clone this repository into your home direct
 
 Then start up Emacs. It will automatically install the necessary packages you need (Don't worry about the =use-package= errors; they're normal).
 
-* How does it work?
-Unlike conventional emacs configurations, most of the elisp code is actually into an =.org= file, which uses babel to evaluate them. =init.el= is just used to execute the org-file. 
-
-=custom.el= doesn't know why it's here.
-
 * Why?
 My emacs configuration is very personalized, and so it caters to what I need. In essence, the whole goal of this configuration is to improve my learning and productivity.
 
