@@ -184,6 +184,15 @@
   :ensure t
   :hook (dired-mode . org-download-enable))
 
+;;;;;; Roam
+(use-package org-roam
+  :ensure t
+  :hook (after-init . org-roam-mode)
+  :bind (("C-c n l" . org-roam)
+		 ("C-c n f" . org-roam-find-file)
+		 ("C-c n g" . org-roam-graph)
+		 ("C-c n i" . org-roam-insert)
+		 ("C-c n I" . org-rooam-insert-immediate)))
 ;;;;; Outshine Mode
 (use-package outshine
   :ensure t
