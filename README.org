@@ -5,6 +5,8 @@
 * About
 This is my custom emacs configuration. There are many like it, but this one is mine, and it could be yours too!
 
+It's a bit bold to say this is really /mine/, because it's  just a whole bunch of cool configuration tweaks I found online.
+
 * Installation
 First, you need to install emacs on your system. I use Arch Linux, so I would install it with
 

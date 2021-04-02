@@ -6,7 +6,8 @@
 ;; 
 
 ;;; Code:
-;;;; Package Initilization
+;;;; Setup
+;;;;; Package Initialization
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
@@ -18,8 +19,12 @@
   (setq-default use-package-always-defer t
                 use-package-always-ensure t))
 
-;;;; Move customization options out of init.el
-(setq custom-file "~/.emacs.d/custom.el")
+;;;;; Move customization options out of init.el
+
+(unless (file-exists-p "custom.el")
+  (write-region "" nil (expand-file-name "custom.el" user-emacs-directory)))
+
+(setq custom-file  (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
 
 ;;;; Insane Defaults

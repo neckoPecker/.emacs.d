@@ -2,8 +2,4 @@
 
 !.gitignore
 !init.el
-!images/dark_emacs.png
-!config.org
-!custom.el
-!init.el
 !README.org
