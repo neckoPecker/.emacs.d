@@ -205,6 +205,9 @@
 								  (agenda . 5)
 								  (registers . 5))))
 
+;;;;; Dap
+(use-package dap-mode
+  :ensure t)
 ;;;;; Flycheck
 (use-package flycheck
   :ensure t
@@ -218,6 +221,29 @@
   :config (setq ivy-use-virtual-buffers t
 		enable-recursive-minibuffers t))
 
+;;;;; Lsp
+;;;;;; Lsp
+(use-package lsp-mode
+  :ensure t
+  :init (setq lsp-keymap-prefix "C-c l"))
+;;;;;; Lsp Ivy
+(use-package lsp-ivy
+  :ensure t)
+;;;;;; Lsp Treemacs
+(use-package lsp-treemacs
+  :ensure t
+  :config (lsp-treemacs-sync-mode 1))
+;;;;;; Lsp UI
+(use-package lsp-ui
+  :ensure t
+  :config (setq lsp-ui-sideline-show-diagnostics t
+				lsp-ui-show-hover t
+				lsp-ui-sideline-update-mode t))
+
+;;;;;; Lsp Java
+(use-package lsp-java
+  :ensure t
+  :hook (java-mode . lsp))
 ;;;;; Projectile
 (use-package projectile
   :ensure t
