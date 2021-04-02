@@ -25,3 +25,4 @@ My emacs configuration is very personalized, and so it caters to what I need. In
   
   + [[https://github.com/angrybacon/dotemacs/blob/master/dotemacs.org][Angry Bacon's dotemacs (Git Repository)]]
   + [[https://emacs.stackexchange.com/questions/3143/can-i-use-org-mode-to-structure-my-emacs-or-other-el-configuration-file][Lee H - "Can I use org-mode to structure my .emacs or other .el configuration file?" (StackExchange)]]
+  + [[https://github.com/rougier/elegant-emacs][Rougier's Elegant Emacs (Github Repository)]]
