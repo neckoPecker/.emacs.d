@@ -160,6 +160,19 @@
 				org-log-done 'time			; Show when you finished a task
 				org-log-done 'note			; Prompt a note for when you finish a task
 				org-startup-indented t))	; View org document as indented
+;;;;;; Babel
+(org-babel-do-load-languages
+ 'org-babel-do-load-languages
+ '((sh. t)
+   (bash . t)
+   (shell . t)
+   (python . t)
+   (ruby . t)
+   (dot . t)
+   (sqlite . t)
+   (perl . t)
+   (java . t)
+   (gcc . t)))
 
 ;;;;;; Agenda
 (use-package org-agenda
