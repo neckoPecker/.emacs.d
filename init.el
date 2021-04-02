@@ -217,6 +217,15 @@
 ;;;;; Dap
 (use-package dap-mode
   :ensure t)
+
+;;;;; Deft
+(use-package deft
+  :ensure t
+  :bind ("C-c <f8>" . deft)
+  :init (setq deft-text-mode 'org-mode
+			  deft-extensions '("org")
+			  deft-recursive t
+			  deft-new-file-format "%Y-%m-%dT%H%M"))
 ;;;;; Flycheck
 (use-package flycheck
   :ensure t
@@ -235,13 +244,16 @@
 (use-package lsp-mode
   :ensure t
   :init (setq lsp-keymap-prefix "C-c l"))
+
 ;;;;;; Lsp Ivy
 (use-package lsp-ivy
   :ensure t)
+
 ;;;;;; Lsp Treemacs
 (use-package lsp-treemacs
   :ensure t
   :config (lsp-treemacs-sync-mode 1))
+
 ;;;;;; Lsp UI
 (use-package lsp-ui
   :ensure t
@@ -253,11 +265,13 @@
 (use-package lsp-java
   :ensure t
   :hook (java-mode . lsp))
+
 ;;;;; Projectile
 (use-package projectile
   :ensure t
   :init (projectile-mode +1)
   :bind ("C-c p" . projectile-command-map))
+
 ;;;;; Visual Fill Column
 (use-package visual-fill-column
   :ensure t
