@@ -22,7 +22,7 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
-;;;; (In)sane Defaults
+;;;; Insane Defaults
 (setq-default delete-by-moving-to-trash t         ; Move files to trash. Don't delete!
 	      fill-column 80		                  ; Width for automatic line breaks
 	      help-window-select t	                  ; You asked for help, so we'll give to you™!
@@ -58,6 +58,16 @@
 ;;;;; Window
 ;; Straight up copied from Rougier's Elegant-Emacs
 ;; https://github.com/rougier/elegant-emacs
+
+;; When we set a face, we take care of removing any previous settings
+(defun set-face (face style)
+  "Reset a face and make it inherit style."
+  (set-face-attribute face nil
+   :foreground 'unspecified :background 'unspecified
+   :family     'unspecified :slant      'unspecified
+   :weight     'unspecified :height     'unspecified
+   :underline  'unspecified :overline   'unspecified
+   :box        'unspecified :inherit    style))
 
 (fringe-mode '(0 . 0))
 
@@ -104,31 +114,6 @@
                       :foreground (face-background 'default)
                       :background (face-background 'default))
   (set-face 'mode-line-inactive                            'mode-line)
-  
-  ;; Mode line at bottom
-  ;; (set-face 'header-line                                 'face-strong)
-  ;; (set-face-attribute 'mode-line nil
-  ;;                     :height 1.0
-  ;;                     :overline (face-background 'default)
-  ;;                     :underline nil
-  ;;                     :foreground (face-foreground 'default)
-  ;;                     :background (face-background 'face-subtle)
-  ;;                     :box `(:line-width 2
-  ;;                            :color ,(face-background 'face-subtle)
-  ;;                            :style nil))
-  ;; (set-face 'mode-line-highlight '(face-popout mode-line))
-  ;; (set-face 'mode-line-emphasis  'face-strong)
-  ;; (set-face-attribute 'mode-line-buffer-id nil :weight 'regular)
-  ;; (set-face-attribute 'mode-line-inactive nil
-  ;;                     :height 1.0
-  ;;                     :overline (face-background 'default)
-  ;;                     :underline nil
-  ;;                     :foreground (face-foreground 'face-faded)
-  ;;                     :background (face-background 'face-subtle)
-  ;;                     :box `(:line-width 2
-  ;;                            :color ,(face-background 'face-subtle)
-  ;;                            :style nil))
-
 
   (set-face-attribute 'cursor nil
                       :background (face-foreground 'default))
@@ -198,7 +183,6 @@
 (use-package outshine
   :ensure t
   :hook (emacs-lisp-mode . outshine-mode))
-
 ;;;; Misc Packages
 ;;;;; Company
 (use-package company
@@ -209,7 +193,12 @@
 ;;;;; Dashboard
 (use-package dashboard
   :ensure t
-  :init (dashboard-setup-startup-hook))
+  :init (dashboard-setup-startup-hook)
+  :config (setq dashboard-items '((recents . 5)
+								  (bookmarks . 5)
+								  (projects . 5)
+								  (agenda . 5)
+								  (registers . 5))))
 
 ;;;;; Flycheck
 (use-package flycheck
@@ -224,6 +213,11 @@
   :config (setq ivy-use-virtual-buffers t
 		enable-recursive-minibuffers t))
 
+;;;;; Projectile
+(use-package projectile
+  :ensure t
+  :init (projectile-mode +1)
+  :bind ("C-c p" . projectile-command-map))
 ;;;;; Visual Fill Column
 (use-package visual-fill-column
   :ensure t
