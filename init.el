@@ -67,6 +67,35 @@
 
 ;;;;; Org Mode
 ;;;;;; General
+(use-package org
+  :config (setq org-hide-emphasis-markers t ; Org headings look much more cleaner
+				org-log-done 'time			; Show when you finished a task
+				org-log-done 'note			; Prompt a note for when you finish a task
+				org-startup-indented t))	; View org document as indented
+
+;;;;;; Agenda
+(use-package org-agenda
+  :bind ("C-c a" . org-agenda)
+  :config (setq org-agenda-span 14
+				org-agenda-todo-ignore-timestamp t
+				org-agenda-prefix-format		    ; Property tags are often too long to the
+				'((agenda . " %i  %-30:c%?-12t% s") ; point where they misalign the agenda
+				  (todo . " %i %-12:c")				; view.
+				  (tags . " %i %-12:c")
+				  (search . " %i %-12:c"))))
+;;;;;; Capture
+(use-package org-capture
+  :bind ("C-c c" . org-capture))
+
+;;;;;; Cliplink
+(use-package org-cliplink
+  :ensure t
+  :bind (("C-x p i " . org-cliplink)))
+
+;;;;;; Download
+(use-package org-download
+  :ensure t
+  :hook (dired-mode . org-download-enable))
 
 ;;;;; Outshine Mode
 (use-package outshine
@@ -102,11 +131,9 @@
 (use-package visual-fill-column
   :ensure t
   :hook ((text-mode . turn-on-visual-line-mode)
-         (visual-line-mode . visual-fill-colum-mode))
-  :config (setq visual-line-mode t))
+         (visual-line-mode . visual-fill-column-mode))
+  :config (setq visual-line-mode t
+				visual-fill-column-width 80))
 
 (provide 'init)
-
-
 ;;; init.el ends here
-
