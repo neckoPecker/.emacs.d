@@ -284,4 +284,14 @@
 				visual-fill-column-width 80))
 
 (provide 'init)
+;;;;; Yasnippet
+;;;;;; Package
+(use-package yasnippet
+  :ensure t
+  :init (yas-global-mode 1))
+
+;;;;;; Snippets
+(use-package yasnippet-snippets
+  :ensure t)
+
 ;;; init.el ends here
