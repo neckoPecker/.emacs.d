@@ -31,6 +31,7 @@
 (setq-default delete-by-moving-to-trash t         ; Move files to trash. Don't delete!
 	      fill-column 80		                  ; Width for automatic line breaks
 	      help-window-select t	                  ; You asked for help, so we'll give to you™!
+		  inhibit-startup-screen t				  ; Disable annyoing startup
 	      initial-scratch-message ""              ; Empty *scratch* buffer
 		  line-spacing 2						  ; Things look less cluttered
 	      recenter-positions '(5 top bottom)      ; Modify recentering positions
@@ -193,6 +194,7 @@
 		 ("C-c n g" . org-roam-graph)
 		 ("C-c n i" . org-roam-insert)
 		 ("C-c n I" . org-rooam-insert-immediate)))
+
 ;;;;; Outshine Mode
 (use-package outshine
   :ensure t
@@ -226,6 +228,7 @@
 			  deft-extensions '("org")
 			  deft-recursive t
 			  deft-new-file-format "%Y-%m-%dT%H%M"))
+
 ;;;;; Flycheck
 (use-package flycheck
   :ensure t
