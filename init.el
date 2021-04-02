@@ -21,7 +21,7 @@
 
 ;;;;; Move customization options out of init.el
 
-(unless (file-exists-p "custom.el")
+(unless (file-exists-p (expand-file-name "custom.el" user-emacs-directory))
   (write-region "" nil (expand-file-name "custom.el" user-emacs-directory)))
 
 (setq custom-file  (expand-file-name "custom.el" user-emacs-directory))
