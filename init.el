@@ -46,7 +46,7 @@
 (tool-bar-mode -1)				; *ew* Ugly Tool Bar
 
 ;;;; Styling
-(set-frame-font "DejaVu Sans Mono 13" nil t) ; Font
+(set-frame-font "Roboto Mono Light 12" nil t) ; Font
 ;;;; Mode Packages
 ;;;;; Markdown Mode
 (use-package markdown-mode
@@ -109,3 +109,4 @@
 
 
 ;;; init.el ends here
+
