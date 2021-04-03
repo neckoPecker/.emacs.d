@@ -138,7 +138,9 @@
 ;;;; Mode Packages
 ;;;;; CMake Mode
 (use-package cmake-mode
-  :ensure t)
+  :ensure t
+  :config (add-to-list 'auto-mode-alist '("/CMakeLists.txt\\'" . cmake-mode) t)
+  )
 
 ;;;;; Markdown Mode
 (use-package markdown-mode
