@@ -136,6 +136,10 @@
 (setq-default mode-line-format'(""))
 
 ;;;; Mode Packages
+;;;;; CMake Mode
+(use-package cmake-mode
+  :ensure t)
+
 ;;;;; Markdown Mode
 (use-package markdown-mode
   :ensure t
@@ -296,6 +300,9 @@
   :ensure t
   :hook (java-mode . lsp))
 
+;;;;; Magit
+(use-package magit
+  :ensure t)
 ;;;;; Projectile
 (use-package projectile
   :ensure t
