@@ -165,20 +165,16 @@
   :config (setq org-hide-emphasis-markers t ; Org headings look much more cleaner
 				org-log-done 'time			; Show when you finished a task
 				org-log-done 'note			; Prompt a note for when you finish a task
-				org-startup-indented t))	; View org document as indented
+				org-startup-indented t)		; View org document as indented
+  (plist-put org-format-latex-options :scale 1.5)) ; Increase the size of latex expressions/equations
+
 ;;;;;; Babel
 (org-babel-do-load-languages
  'org-babel-do-load-languages
- '((sh. t)
-   (bash . t)
-   (shell . t)
-   (python . t)
-   (ruby . t)
-   (dot . t)
+ '((python . t)
    (sqlite . t)
-   (perl . t)
    (java . t)
-   (gcc . t)))
+   (C . t)))
 
 ;;;;;; Agenda
 (use-package org-agenda
