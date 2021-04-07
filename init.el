@@ -159,6 +159,9 @@
                          (setq-local completion-cycle-threshold t)
                          (setq-local ledger-complete-in-steps t))))
 
+;;;;; Lua Mode
+(use-package lua-mode
+  :ensure t)
 ;;;;; Org Mode
 ;;;;;; General
 (use-package org
@@ -198,7 +201,9 @@
 ;;;;;; Download
 (use-package org-download
   :ensure t
-  :hook (dired-mode . org-download-enable))
+  :hook (dired-mode . org-download-enable)
+  :init (with-eval-after-load 'org (org-download-enable))
+  :config (setq-default org-download-image-dir "./org-images/"))
 
 ;;;;;; Roam
 (use-package org-roam
