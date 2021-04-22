@@ -18,6 +18,26 @@ After you have installed emacs, just clone this repository into your home direct
 
 Then start up Emacs. It will automatically install the necessary packages you need (Don't worry about the =use-package= errors; they're normal).
 
+* Configuration
+You can directly edit the =init.el= file to change configurations that you don't like. However, if you plan to pull a new change that I made, you may have to fix git differences.
+
+Alternatively (and preferably), you can make a =custom.el= file in your emacs configuration folder. 
+You can copy the below in your =custom.el= file and change it however you like. 
+
+#+begin_src emacs-lisp
+;;; custom.el
+;;; Commentary: 
+;;
+;; An example custom.el file to run along with init.el
+;;
+
+;;; Code:
+;;;; Set backup directory
+(setq backup-directory-alist '(("." . "~/.emacs.d/file-backups")))
+
+;;; custom.el ends here
+#+end_src
+
 * Why?
 My emacs configuration is very personalized, and so it caters to what I need. In essence, the whole goal of this configuration is to improve my learning and productivity.
 
