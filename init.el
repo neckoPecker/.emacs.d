@@ -242,6 +242,10 @@
   :hook (after-init . global-company-mode)
   :config (setq company-idle-delay 0.1))
 
+;;;;; Dash
+(use-package dash
+  :ensure t)
+
 ;;;;; Dashboard
 (use-package dashboard
   :ensure t
@@ -309,12 +313,18 @@
 (use-package magit
   :ensure t)
 
+;;;;; Origami
+(use-package origami
+  :ensure t)
 ;;;;; Projectile
 (use-package projectile
   :ensure t
   :init (projectile-mode +1)
   :bind ("C-c p" . projectile-command-map))
 
+;;;;; S
+(use-package s
+  :ensure t)
 ;;;;; Visual Fill Column
 (use-package visual-fill-column
   :ensure t
