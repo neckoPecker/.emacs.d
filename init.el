@@ -166,10 +166,11 @@
 ;;;;;; General
 (use-package org
   :config (setq org-hide-emphasis-markers t 		; Org headings look much more cleaner
-				org-log-done 'time 	; Show when you finished a task
-				org-log-done 'note 	; Prompt a note for when you finish a task
-				org-startup-indented t)	; View org document as indented
-  (plist-put org-format-latex-options :scale 1.5)) 	; Increase the size of latex expressions/equations
+		org-log-done 'time 			; Show when you finished a task
+		org-log-done 'note 			; Prompt a note for when you finish a task
+		org-startup-indented t)			; View org document as indented
+  (plist-put org-format-latex-options :scale 1.5) 	; Increase the size of latex expressions/equations
+  (set-face-attribute 'org-headline-done nil :strike-through t)) ; Strikethrough DONE tasks (it's very motivating!)
 
 ;;;;;; Babel
 (org-babel-do-load-languages
