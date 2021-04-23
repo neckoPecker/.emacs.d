@@ -173,11 +173,11 @@
 
 ;;;;;; Babel
 (org-babel-do-load-languages
- 'org-babel-do-load-languages
- '((python . t)
-   (sqlite . t)
+ 'org-babel-load-languages
+ '((C . t)
+   (python . t)
    (java . t)
-   (C . t)))
+   (shell . t)))
 
 ;;;;;; Agenda
 (use-package org-agenda
