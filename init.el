@@ -57,9 +57,9 @@
 (set-frame-font "Roboto Mono Light 12" nil t)
 
 ;;;;; Theme
-(use-package doom-themes
-  :ensure t
-  :config (load-theme 'doom-plain t))
+;;(use-package doom-themes
+;;  :ensure t
+;;  :config (load-theme 'doom-plain t))
 
 ;;;;; Window
 ;; Straight up copied from Rougier's Elegant-Emacs
