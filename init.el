@@ -98,10 +98,6 @@
      '((:eval
        (mode-line-render
        (format-mode-line (list
-         (propertize "☰" 'face `(:inherit mode-line-buffer-id)
-                         'help-echo "Mode(s) menu"
-                         'mouse-face 'mode-line-highlight
-                         'local-map   mode-line-major-mode-keymap)
          " %b "
          (if (and buffer-file-name (buffer-modified-p))
              (propertize "(modified)" 'face `(:inherit face-faded)))))
@@ -142,7 +138,6 @@
 ;; Automatically update org-mode file date
 (setq time-stamp-pattern "8/#\\+date:[ \t]+\\\\?[\"<]+%:y-%02m-%02d\\\\?[\">]")
 (add-hook 'before-save-hook 'time-stamp)
-
 
 ;;;;; CMake Mode
 (use-package cmake-mode
