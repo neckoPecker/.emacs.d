@@ -27,6 +27,7 @@
 (load custom-file)
 
 ;;;; Insane Defaults
+;;;;; General
 (setq-default delete-by-moving-to-trash t 			; move files to trash. Don't delete!
 			  fill-column 80 			; Width for automatic line breaks
 			  help-window-select t 			; You asked for help, so we'll give to you™!
@@ -52,6 +53,7 @@
 (toggle-scroll-bar -1) 		; *ew* Ugly Scroll Bar
 (tool-bar-mode -1)		; *ew* Ugly Tool Bar
 
+;;;;; Personalized
 ;;;; Styling
 ;;;;; Font
 (set-frame-font "Roboto Mono Light 12" nil t)
@@ -136,6 +138,12 @@
 (setq-default mode-line-format'(""))
 
 ;;;; Mode Packages
+
+;; Automatically update org-mode file date
+(setq time-stamp-pattern "8/#\\+date:[ \t]+\\\\?[\"<]+%:y-%02m-%02d\\\\?[\">]")
+(add-hook 'before-save-hook 'time-stamp)
+
+
 ;;;;; CMake Mode
 (use-package cmake-mode
   :ensure t
