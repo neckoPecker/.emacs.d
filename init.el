@@ -329,6 +329,10 @@
 ;;;;; S
 (use-package s
   :ensure t)
+;;;;; Slime
+(use-package slime
+  :ensure t
+  :config (setq inferior-lisp-program "/bin/sbcl"))
 ;;;;; Visual Fill Column
 (use-package visual-fill-column
   :ensure t
