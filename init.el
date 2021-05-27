@@ -144,6 +144,9 @@
   :ensure t
   :config (add-to-list 'auto-mode-alist '("/CMakeLists.txt\\'" . cmake-mode) t))
 
+;;;;; Csharp Mode
+(use-package csharp-mode
+  :ensure t)
 ;;;;; Markdown Mode
 (use-package markdown-mode
   :ensure t
@@ -240,6 +243,9 @@
   :hook (emacs-lisp-mode . outshine-mode))
 
 ;;;; Misc Packages
+;;;;; Auctex
+(use-package tex
+  :ensure auctex)
 ;;;;; Company
 (use-package company
   :ensure t
@@ -339,7 +345,7 @@
   :hook ((text-mode . turn-on-visual-line-mode)
          (visual-line-mode . visual-fill-column-mode))
   :config (setq visual-line-mode t
-		visual-fill-column-width 80))
+		visual-fill-column-width 120))
 
 (provide 'init)
 ;;;;; Yasnippet
