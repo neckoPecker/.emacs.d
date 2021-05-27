@@ -134,11 +134,6 @@
 (setq-default mode-line-format'(""))
 
 ;;;; Mode Packages
-
-;; Automatically update org-mode file date
-(setq time-stamp-pattern "8/#\\+date:[ \t]+\\\\?[\"<]+%:y-%02m-%02d\\\\?[\">]")
-(add-hook 'before-save-hook 'time-stamp)
-
 ;;;;; CMake Mode
 (use-package cmake-mode
   :ensure t
@@ -177,6 +172,13 @@
 		org-startup-indented t)			; View org document as indented
   (plist-put org-format-latex-options :scale 1.5) 	; Increase the size of latex expressions/equations
   (set-face-attribute 'org-headline-done nil :strike-through t)) ; Strikethrough DONE tasks (it's very motivating!)
+
+;; Automatically update org-mode file date
+(setq time-stamp-pattern "8/#\\+date:[ \t]+\\\\?[\"<]+%:y-%02m-%02d\\\\?[\">]")
+(add-hook 'before-save-hook 'time-stamp)
+
+;; TODO Dependencies
+(setq org-enforce-todo-dependencies t)
 
 ;;;;;; Babel
 (org-babel-do-load-languages
