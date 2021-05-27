@@ -179,6 +179,10 @@
 
 ;; TODO Dependencies
 (setq org-enforce-todo-dependencies t)
+(setq org-agenda-dim-blocked-tasks 'invisible)
+
+;; Skip agenda schedule if done
+(setq org-agenda-skip-scheduled-if-done t)
 
 ;;;;;; Babel
 (org-babel-do-load-languages
