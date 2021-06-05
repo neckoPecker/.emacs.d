@@ -43,6 +43,7 @@
 			  x-underline-at-descent-line t 	; Makes underlines look better
 			  )
 
+(global-display-line-numbers-mode t)	; Number lines are useful...
 (blink-cursor-mode 1)		; "Where the hell is my cur...oh there it is"
 (electric-pair-mode 1)		; "You complete me..."
 (delete-selection-mode 1)	; Replace region when inserting text
@@ -53,7 +54,6 @@
 (toggle-scroll-bar -1) 		; *ew* Ugly Scroll Bar
 (tool-bar-mode -1)		; *ew* Ugly Tool Bar
 
-;;;;; Personalized
 ;;;; Styling
 ;;;;; Font
 (set-frame-font "Roboto Mono Light 12" nil t)
