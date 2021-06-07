@@ -5,8 +5,7 @@
 ;;
 
 ;;; Code:
-;;;; Font
-
+;;;; Window
 (defun init-style ()
   "Contain styles."
   (setq left-margin-width 2)		; Left margin
@@ -18,5 +17,8 @@
 
 (add-hook 'after-init-hook (init-style))
 
+;;;; Themes
+(use-package doom-themes
+  :ensure t)
 
 ;;; style.el ends here
