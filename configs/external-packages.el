@@ -126,6 +126,12 @@
 		visual-fill-column-width 120))
 
 ;;;; Complicated packages
+;;;; Math preview
+;; Note that you need to install the node.js program.
+;; Consult https://gitlab.com/matsievskiysv/math-preview.
+(use-package math-preview
+  :ensure t)
+
 ;;;;; Lsp
 ;;;;;; Lsp General
 (use-package lsp-mode
