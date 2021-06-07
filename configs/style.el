@@ -15,10 +15,21 @@
 		      :height 200)
   )
 
-(add-hook 'after-init-hook (init-style))
+(add-hook 'emacs-startup-hook (init-style))
 
 ;;;; Themes
 (use-package doom-themes
   :ensure t)
+
+;;;; Modeline
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1)
+  :config (setq doom-modeline-height 25))
+
+;;;; Beacon
+(use-package beacon
+  :ensure t
+  :init (beacon-mode 1))
 
 ;;; style.el ends here
