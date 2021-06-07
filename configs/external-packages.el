@@ -126,7 +126,7 @@
 		visual-fill-column-width 120))
 
 ;;;; Complicated packages
-;;;; Math preview
+;;;;; Math preview
 ;; Note that you need to install the node.js program.
 ;; Consult https://gitlab.com/matsievskiysv/math-preview.
 (use-package math-preview
@@ -214,6 +214,10 @@
   :hook (dired-mode . org-download-enable)
   :init (with-eval-after-load 'org (org-download-enable))
   :config (setq-default org-download-image-dir "./org-images/"))
+
+;;;;;; Noter
+(use-package org-noter
+  :ensure t)
 
 ;;;;;; Roam
 (use-package org-roam
