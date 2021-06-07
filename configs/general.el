@@ -20,10 +20,13 @@
 			  x-underline-at-descent-line t 	; Makes underlines look better
 			  )
 
+(fset 'yes-or-no-p 'y-or-n-p)	; Typing yes/no is very annoying
+
 (blink-cursor-mode 1)		; "Where the hell is my cur...oh there it is"
 (electric-pair-mode 1)		; "You complete me..."
 (delete-selection-mode 1)	; Replace region when inserting text
-(fset 'yes-or-no-p 'y-or-n-p)	; Typing yes/no is very annoying
+
+(global-display-line-numbers-mode t) ; Number lines are useful.
 (global-subword-mode 1)		; Iterate through CamelCase words
 (global-auto-revert-mode 1)	; Keep buffers up to date
 (menu-bar-mode -1)		; *ew* Ugly Menu Bar
