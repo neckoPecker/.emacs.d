@@ -15,7 +15,7 @@
 ;;;;; Company
 (use-package company
   :ensure t
-  :hook (after-init . global-company-mode)
+  :hook (emacs-startup . global-company-mode)
   :config (setq company-idle-delay 0.1))
 
 ;;;;; Csharp Mode
