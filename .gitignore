@@ -1,5 +1,6 @@
 *
 
 !.gitignore
+!./configs/
 !init.el
 !README.org
