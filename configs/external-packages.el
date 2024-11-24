@@ -185,6 +185,14 @@
 ;; 				  (todo . " %i %-12:c")		    ; view.
 ;; 				  (tags . " %i %-12:c")
 ;; 				  (search . " %i %-12:c"))))
+(global-set-key (kbd "C-c a") 'org-agenda)
+(setq org-agenda-span 14)
+(setq org-agenda-todo-ignore-timestamp -1)
+(setq org-agenda-prefix-format
+      '((agenda . " %i  %-30:c%?-12t% s")
+	(todo . " %i %-12:c")
+	(tags . " %i %-12:c")
+	(search . " %i %-12:c")))
 
 ;;;;;; Capture
 ;; (use-package org-capture
@@ -202,6 +210,48 @@
 ;;   :hook (dired-mode . org-download-enable)
 ;;   :init (with-eval-after-load 'org (org-download-enable))
 ;;   :config (setq-default org-download-image-dir "./org-images/"))
+
+;;;;;; Modern
+(straight-use-package 'org-modern)
+;; The following is taken straight out of the README.txt
+;; Add frame borders and window dividers
+(modify-all-frames-parameters
+ '((right-divider-width . 40)
+   (internal-border-width . 40)))
+(dolist (face '(window-divider
+                window-divider-first-pixel
+                window-divider-last-pixel))
+  (face-spec-reset-face face)
+  (set-face-foreground face (face-attribute 'default :background)))
+(set-face-background 'fringe (face-attribute 'default :background))
+
+(setq
+ ;; Edit settings
+ org-auto-align-tags nil
+ org-tags-column 0
+ org-catch-invisible-edits 'show-and-error
+ org-special-ctrl-a/e t
+ org-insert-heading-respect-content t
+
+ ;; Org styling, hide markup etc.
+ org-hide-emphasis-markers t
+ org-pretty-entities t
+
+ ;; Agenda styling
+ org-agenda-tags-column 0
+ org-agenda-block-separator ?─
+ org-agenda-time-grid
+ '((daily today require-timed)
+   (800 1000 1200 1400 1600 1800 2000)
+   " ┄┄┄┄┄ " "┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄")
+ org-agenda-current-time-string
+ "◀── now ─────────────────────────────────────────────────")
+
+;; Ellipsis styling
+(setq org-ellipsis "…")
+(set-face-attribute 'org-ellipsis nil :inherit 'default :box nil)
+;; (global-org-modern-mode)
+(with-eval-after-load 'org (global-org-modern-mode))
 
 ;;;;;; Noter
 ;; (use-package org-noter
