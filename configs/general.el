@@ -34,4 +34,6 @@
 (toggle-scroll-bar -1) 		; *ew* Ugly Scroll Bar
 (tool-bar-mode -1)		; *ew* Ugly Tool Bar
 
+(setq debug-on-error t)
+
 ;;; general.el ends here
