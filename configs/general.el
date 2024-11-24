@@ -14,6 +14,7 @@
 			  recenter-positions '(5 top bottom) 	; Modify recentering positions
 			  scroll-conservatively 101 		; Add margin for scrolling vertically
 			  tab-stop-list 4	 		; I dare you set this to 2. I double dare you.
+			  truncate-lines t			; Again, this is prefered for some reason...
 			  uniquify-buffer-name-style 'forward 	; Uniquify buffer names
 			  warning-minimum-level 		; "A warning? I'll just pretend it's not there..."
 			  x-stretch-cursor			; Stretch cursor to glyph width

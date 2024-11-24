@@ -9,155 +9,142 @@
 ;;; Code:
 ;;;; Simple packages
 ;;;;; Auctex
-(use-package tex
-  :ensure auctex)
+(straight-use-package 'auctex)
 
 ;;;;; Company
-(use-package company
-  :ensure t
-  :hook (emacs-startup . global-company-mode)
-  :config (setq company-idle-delay 0.1))
+;; (use-package company
+;;   :ensure t
+;;   :hook (emacs-startup . global-company-mode)
+;;   :config (setq company-idle-delay 0.1))
+(straight-use-package 'company)
+(add-hook 'emacs-startup-hook (global-company-mode))
 
 ;;;;; Csharp Mode
-(use-package csharp-mode
-  :ensure t)
+(straight-use-package 'csharp-mode)
 
 ;;;;; CMake Mode
-(use-package cmake-mode
-  :ensure t
-  :config (add-to-list 'auto-mode-alist '("/CMakeLists.txt\\'" . cmake-mode) t))
-
-;;;;; Dash
-(use-package dash
-  :ensure t)
+(straight-use-package 'cmake-mode)
+(add-to-list 'auto-mode-alist '("/CMakeLists.txt\\'" . cmake-mode) t)
 
 ;;;;; Dashboard
-(use-package dashboard
-  :ensure t
-  :init (dashboard-setup-startup-hook)
-  :config (setq dashboard-items '((recents . 5)
-				  (bookmarks . 5)
-				  (projects . 5)
-				  (agenda . 5)
-				  (registers . 5))))
-
-;;;;; Dap
-(use-package dap-mode
-  :ensure t)
+;; (use-package dashboard
+;;   :ensure t
+;;   :init (dashboard-setup-startup-hook)
+;;   :config (setq dashboard-items '((recents . 5)
+;; 				  (bookmarks . 5)
+;; 				  (projects . 5)
+;; 				  (agenda . 5)
+;; 				  (registers . 5))))
+(straight-use-package 'dashboard)
+(add-hook 'emacs-startup-hook 'dashboard-setup-startup-hook)
+(setq dashboard-items '((recents . 5)
+			(bookmarks . 5)
+			(projects . 5)
+			(agenda . 5)
+			(registers . 5)))
 
 ;;;;; Deft
-(use-package deft
-  :ensure t
-  :bind ("C-c <f8>" . deft)
-  :init (setq deft-text-mode 'org-mode
-			  deft-extensions '("org")
-			  deft-recursive t
-			  deft-new-file-format "%Y-%m-%dT%H%M"))
+;; (use-package deft
+;;   :ensure t
+;;   :bind ("C-c <f8>" . deft)
+;;   :init (setq deft-text-mode 'org-mode
+;; 			  deft-extensions '("org")
+;; 			  deft-recursive t
+;; 			  deft-new-file-format "%Y-%m-%dT%H%M"))
+
 ;;;;; Flycheck
-(use-package flycheck
-  :ensure t
-  :hook (text-mode . flyspell-mode)
-  :init (global-flycheck-mode))
+;; (use-package flycheck
+;;   :ensure t
+;;   :hook (text-mode . flyspell-mode)
+;;   :init (global-flycheck-mode))
+(straight-use-package 'flycheck)
+(add-hook 'text-mode-hook (lambda () (flyspell-mode)))
 
 ;;;;; Ivy
-(use-package ivy
-  :ensure t
-  :init (ivy-mode 1)
-  :config (setq ivy-use-virtual-buffers t
-		enable-recursive-minibuffers t))
+(straight-use-package 'ivy)
+(ivy-mode)
+(setq ivy-use-virtual-buffers t)
+(setq enable-recursive-minibuffers t)
 
 ;;;;; Ledger Mode
-(use-package ledger-mode
-  :ensure t
-  :hook (ledger-mode . (lambda ()
-                         (setq-local tab-always-indent 'complete)
-                         (setq-local completion-cycle-threshold t)
-                         (setq-local ledger-complete-in-steps t))))
+(straight-use-package 'ledger-mode)
+(add-hook 'ledger-mode (lambda()
+			  (setq-local tab-always-indent 'complete)
+                          (setq-local completion-cycle-threshold t)
+                          (setq-local ledger-complete-in-steps t)))
+(setq ledger-reports
+ '(("bal"            "%(binary) -f %(ledger-file) bal")
+   ("bal this month" "%(binary) -f %(ledger-file) bal -p %(month) -S amount")
+   ("bal this year"  "%(binary) -f %(ledger-file) bal -p 'this year'")
+   ("net worth"      "%(binary) -f %(ledger-file) bal Assets Liabilities")
+   ("account" "%(binary) -f %(ledger-file) reg %(account)")))
 
 ;;;;; Lua Mode
-(use-package lua-mode
-  :ensure t)
-
-
+(straight-use-package 'lua-mode)
 
 ;;;;; Magit
-(use-package magit
-  :ensure t)
+(straight-use-package 'magit)
 
 ;;;;; Markdown Mode
-(use-package markdown-mode
-  :ensure t
-  :commands (markdown-mode gfm-mode)
-  :mode (("README\\.md\\'" . gfm-mode)
-	     ("\\.md\\'" . markdown-mode)
-	     ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "multimarkdown"))
-
-;;;;; Origami
-(use-package origami
-  :ensure t)
+;; (use-package markdown-mode
+;;   :ensure t
+;;   :commands (markdown-mode gfm-mode)
+;;   :mode (("README\\.md\\'" . gfm-mode)
+;; 	     ("\\.md\\'" . markdown-mode)
+;; 	     ("\\.markdown\\'" . markdown-mode))
+;;   :init (setq markdown-command "multimarkdown"))
+(straight-use-package 'markdown-mode)
 
 ;;;;; Outshine Mode
-(use-package outshine
-  :ensure t
-  :hook (emacs-lisp-mode . outshine-mode))
+(straight-use-package 'outshine)
+(add-hook 'emacs-lisp-mode-hook 'outshine-mode)
 
 ;;;;; Projectile
-(use-package projectile
-  :ensure t
-  :init (projectile-mode +1)
-  :bind ("C-c p" . projectile-command-map))
-
-;;;;; S
-(use-package s
-  :ensure t)
+(straight-use-package 'projectile)
+(projectile-mode)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 ;;;;; Slime
-(use-package slime
-  :ensure t
-  :config (setq inferior-lisp-program "/bin/sbcl"))
-
-;;;;; Visual Fill Column
-(use-package visual-fill-column
-  :ensure t
-  :hook ((text-mode . turn-on-visual-line-mode)
-         (visual-line-mode . visual-fill-column-mode))
-  :config (setq visual-line-mode t
-		visual-fill-column-width 120))
+;; (use-package slime
+;;   :ensure t
+;;   :config (setq inferior-lisp-program "/bin/sbcl"))
 
 ;;;; Complicated packages
 ;;;;; Math preview
 ;; Note that you need to install the node.js program.
 ;; Consult https://gitlab.com/matsievskiysv/math-preview.
-(use-package math-preview
-  :ensure t)
+;; (use-package math-preview
+;;   :ensure t)
 
 ;;;;; Lsp
 ;;;;;; Lsp General
-(use-package lsp-mode
-  :ensure t
-  :init (setq lsp-keymap-prefix "C-c l"))
+;; (use-package lsp-mode
+;;   :ensure t
+;;   :init (setq lsp-keymap-prefix "C-c l"))
+(straight-use-package 'lsp-mode)
 
 ;;;;;; Lsp Ivy
-(use-package lsp-ivy
-  :ensure t)
+(straight-use-package 'lsp-ivy)
 
 ;;;;;; Lsp Treemacs
-(use-package lsp-treemacs
-  :ensure t
-  :config (lsp-treemacs-sync-mode 1))
+;; (use-package lsp-treemacs
+;;   :ensure t
+;;   :config (lsp-treemacs-sync-mode 1))
+(straight-use-package 'lsp-treemacs)
 
 ;;;;;; Lsp UI
-(use-package lsp-ui
-  :ensure t
-  :config (setq lsp-ui-sideline-show-diagnostics t
-		lsp-ui-show-hover t
-		lsp-ui-sideline-update-mode t))
+;; (use-package lsp-ui
+;;   :ensure t
+;;   :config (setq lsp-ui-sideline-show-diagnostics t
+;; 		lsp-ui-show-hover t
+;; 		lsp-ui-sideline-update-mode t))
+(straight-use-package 'lsp-ui)
 
 ;;;;;; Lsp Java
-(use-package lsp-java
-  :ensure t
-  :hook (java-mode . lsp))
+;; (use-package lsp-java
+;;   :ensure t
+;;   :hook (java-mode . lsp))
+(straight-use-package 'lsp-java)
 
 ;;;;; Org Mode
 ;;;;;; General
@@ -189,69 +176,72 @@
    (shell . t)))
 
 ;;;;;; Agenda
-(use-package org-agenda
-  :bind ("C-c a" . org-agenda)
-  :config (setq org-agenda-span 14
-				org-agenda-todo-ignore-timestamp t
-				org-agenda-prefix-format	    ; Property tags are often too long to the
-				'((agenda . " %i  %-30:c%?-12t% s") ; point where they misalign the agenda
-				  (todo . " %i %-12:c")		    ; view.
-				  (tags . " %i %-12:c")
-				  (search . " %i %-12:c"))))
+;; (use-package org-agenda
+;;   :bind ("C-c a" . org-agenda)
+;;   :config (setq org-agenda-span 14
+;; 				org-agenda-todo-ignore-timestamp t
+;; 				org-agenda-prefix-format	    ; Property tags are often too long to the
+;; 				'((agenda . " %i  %-30:c%?-12t% s") ; point where they misalign the agenda
+;; 				  (todo . " %i %-12:c")		    ; view.
+;; 				  (tags . " %i %-12:c")
+;; 				  (search . " %i %-12:c"))))
 
 ;;;;;; Capture
-(use-package org-capture
-  :bind ("C-c c" . org-capture))
+;; (use-package org-capture
+;;   :bind ("C-c c" . org-capture))
 
 ;;;;;; Cliplink
-(use-package org-cliplink
-  :ensure t
-  :bind (("C-x p i " . org-cliplink)))
+;; (use-package org-cliplink
+;;   :ensure t
+;;   :bind (("C-x p i " . org-cliplink)))
+(straight-use-package 'org-cliplink)
 
 ;;;;;; Download
-(use-package org-download
-  :ensure t
-  :hook (dired-mode . org-download-enable)
-  :init (with-eval-after-load 'org (org-download-enable))
-  :config (setq-default org-download-image-dir "./org-images/"))
+;; (use-package org-download
+;;   :ensure t
+;;   :hook (dired-mode . org-download-enable)
+;;   :init (with-eval-after-load 'org (org-download-enable))
+;;   :config (setq-default org-download-image-dir "./org-images/"))
 
 ;;;;;; Noter
-(use-package org-noter
-  :ensure t)
+;; (use-package org-noter
+;;   :ensure t)
 
 ;;;;;; Roam
-(use-package org-roam
-  :ensure t
-  :hook (after-init . org-roam-mode)
-  :bind (("C-c n l" . org-roam)
-		 ("C-c n f" . org-roam-find-file)
-		 ("C-c n g" . org-roam-graph)
-		 ("C-c n i" . org-roam-insert)
-		 ("C-c n I" . org-rooam-insert-immediate)))
+;; (use-package org-roam
+;;   :ensure t
+;;   :hook (after-init . org-roam-mode)
+;;   :bind (("C-c n l" . org-roam)
+;; 		 ("C-c n f" . org-roam-find-file)
+;; 		 ("C-c n g" . org-roam-graph)
+;; 		 ("C-c n i" . org-roam-insert)
+;; 		 ("C-c n I" . org-rooam-insert-immediate)))
 
 ;;;;;; Roam Server
-(use-package org-roam-server
-  :ensure t
-  :config (setq org-roam-server-host "127.0.0.1"
-				org-roam-server-port 8080
-				org-roam-server-authenticate nil
-				org-roam-server-export-inline-images t
-				org-roam-server-serve-files nil
-				org-roam-server-served-file-extensions '("pdf" "mp4" "ogv")
-				org-roam-server-network-poll t
-				org-roam-server-network-arrows nil
-				org-roam-server-network-label-truncate t
-				org-roam-server-network-label-truncate-length 60
-				org-roam-server-network-label-wrap-length 20))
+;; (use-package org-roam-server
+;;   :ensure t
+;;   :config (setq org-roam-server-host "127.0.0.1"
+;; 				org-roam-server-port 8080
+;; 				org-roam-server-authenticate nil
+;; 				org-roam-server-export-inline-images t
+;; 				org-roam-server-serve-files nil
+;; 				org-roam-server-served-file-extensions '("pdf" "mp4" "ogv")
+;; 				org-roam-server-network-poll t
+;; 				org-roam-server-network-arrows nil
+;; 				org-roam-server-network-label-truncate t
+;; 				org-roam-server-network-label-truncate-length 60
+;; 				org-roam-server-network-label-wrap-length 20))
 ;;;;; Yasnippet
 ;;;;;; Package
-(use-package yasnippet
-  :ensure t
-  :init (yas-global-mode 1))
+;; (use-package yasnippet
+;;   :ensure t
+;;   :init (yas-global-mode 1))
+(straight-use-package 'yasnippet)
 
 ;;;;;; Snippets
-(use-package yasnippet-snippets
-  :ensure t)
+;; (use-package yasnippet-snippets
+;;   :ensure t)
+(straight-use-package 'yasnippet-snippets)
 
 (provide 'init)
 ;;; packages.el ends here
