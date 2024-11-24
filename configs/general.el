@@ -30,9 +30,6 @@
 (global-display-line-numbers-mode t) ; Number lines are useful.
 (global-subword-mode 1)		; Iterate through CamelCase words
 (global-auto-revert-mode 1)	; Keep buffers up to date
-(menu-bar-mode -1)		; *ew* Ugly Menu Bar
-(toggle-scroll-bar -1) 		; *ew* Ugly Scroll Bar
-(tool-bar-mode -1)		; *ew* Ugly Tool Bar
 
 (setq debug-on-error t)
 

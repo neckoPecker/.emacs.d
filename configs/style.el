@@ -6,23 +6,28 @@
 
 ;;; Code:
 ;;;; Window
-;; (defun init-style ()
-;;   "Contain styles."
-;;   (setq left-margin-width 2)		; Left margin
-;;   (setq right-margin-width 2)		; Right margin
-;;   (setq header-line-format " ")		; Set margin as just empty
-;;   (set-face-attribute 'header-line nil	; Top margin height
-;; 		      :height 200)
-;;   )
-;; (add-hook 'emacs-startup-hook (init-style))
+
+(straight-use-package
+ '(nano :type git :host github :repo "rougier/nano-emacs"))
+(require 'nano-base-colors)
+(require 'nano-faces)
+(require 'nano-layout)
+(require 'nano-theme)
+(require 'nano-modeline)
+
+(add-hook 'after-init-hook (lambda () (nano-refresh-theme)))
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(menu-bar-mode -1)
+(setq display-line-numbers-type nil)
 
 ;;;; Themes
-(straight-use-package 'doom-themes)
+;; (straight-use-package 'doom-themes)
 
 ;;;; Modeline
-(straight-use-package 'doom-modeline)
-(add-hook 'after-init-hook #'doom-modeline-mode)
-(setq doom-modeline-height 25)
+;; (straight-use-package 'doom-modeline)
+;; (add-hook 'after-init-hook #'doom-modeline-mode)
+;; (setq doom-modeline-height 25)
 
 ;;;; Beacon
 (straight-use-package 'beacon)
