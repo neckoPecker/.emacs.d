@@ -33,4 +33,6 @@
 
 (setq debug-on-error t)
 
+(global-set-key (kbd "C-x k") 'kill-this-buffer) ; Rebind killing *which* buffer to killing *this* buffer
+
 ;;; general.el ends here
